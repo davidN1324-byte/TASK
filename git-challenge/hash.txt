@@ -1,0 +1,3 @@
+e712ae76a9167a62fd29c6956146688af2784529
+This is my Git challenge file.
+100644 e712ae76a9167a62fd29c6956146688af2784529 0       challenge.txt
