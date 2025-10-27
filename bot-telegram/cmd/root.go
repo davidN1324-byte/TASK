@@ -12,7 +12,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "bot-telegram",
-	Short: "Telegram бот на Go",
+	Short: "Telegram bot Go lang",
 	Run: func(cmd *cobra.Command, args []string) {
 		runBot()
 	},
@@ -27,12 +27,12 @@ func Execute() {
 func runBot() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Ошибка загрузки .env файла")
+		log.Fatal("Download error.env file")
 	}
 
 	token := os.Getenv("TELE_TOKEN")
 	if token == "" {
-		log.Fatal("TELE_TOKEN не найден")
+		log.Fatal("TELE_TOKEN not found")
 	}
 
 	pref := telebot.Settings{
@@ -46,9 +46,9 @@ func runBot() {
 	}
 
 	bot.Handle(telebot.OnText, func(c telebot.Context) error {
-		return c.Send("Ты написал: " + c.Text())
+		return c.Send("You write: " + c.Text())
 	})
 
-	log.Println("Бот запущен...")
+	log.Println("Bot connected...")
 	bot.Start()
 }
